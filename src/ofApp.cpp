@@ -1,3 +1,10 @@
+/// <summary>
+/// Lydia Pierce
+/// CSCI 182
+/// 2/23/2020
+/// This program uses the Drunk Sailor code and prints it on a heat map to the screen.
+/// </summary>
+
 #include <iostream>
 #include <time.h>		// For the clock to seed the random number
 #include <stdio.h>
@@ -44,23 +51,12 @@ void ofApp::TakeAStep() {
 	}
 }
 
-/*void ofApp::PrintArray(int a, int b) {
-	// Print the array to the screen with the values of how many times he stepped there
-	for (int a = 0; a < Array_WIDTH; a++)
-	{
-		for (int b = 0; b < Array_HEIGHT; b++)
-		{
-			cout << ofApp::nMapArray[a][b] << "\t";
-		}
-		std::cout << endl;
-	}
-}*/
 
 void ofApp::setup(){
 	// Setup the window
 	ofBackground(0, 0, 0);
 	ofSetVerticalSync(true);
-	ofSetFrameRate(60);
+	//ofSetFrameRate(60);
 	
 	ZeroArray();
 	TakeAStep();
@@ -79,18 +75,11 @@ void ofApp::draw(){
 	for (int i = 0; i < Array_HEIGHT - 1; i++) {
 		for (int j = 0; j < Array_WIDTH - 1; j++) {
 			alpha = ceil(ofMap(nMapArray[i][j], 0, 20, 0, 255));
-			ofSetColor(255, 0, 0, alpha);
+			ofSetColor(125, 0, 130, alpha);
 			ofDrawRectangle(j*30, i*30, 30, 30);
 		}
 	}
 	ofDisableAlphaBlending();
-	
-
-	/*
-	ofSetColor(0, 0, 255);
-	//ofTranslate(10,10,0);
-	ofDrawRectangle(0, 0, 20, 20);
-	*/
 }
 
 //--------------------------------------------------------------
